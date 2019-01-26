@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from 'react';
 
 const Map = () => {
-  // const [map, setMap] = useState(null);
+  const [script, setScript] = useState('Hi');
 
 
-  // useEffect(getMap, []);
+  const getMap = () => {
+    fetch('map')
+      .then(response => {
+        return response.text();
+      })
+      .then(text => {
+        setScript(text);
+        // console.log(text.slice(0, 100));
+      })
+      .catch(err => console.log('FETCHING ERROR, ', err));
+  }
 
-  // const getMap = () => {
-  //   fetch('map')
-  //     // .then(newmap => setMap(newmap)); // this is the goal
-  //     .then(result => console.log(result));
-  // }
+  useEffect(getMap, []);
 
   return (
     <>
       <h3>put a map here</h3>
-      {/* <div id="map"></div> */}
+      <div id="map">Hi</div>
     </>
   )
 }
 
 export default Map;
+
