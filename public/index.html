@@ -5,12 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="app.js" async defer></script>
+  <script src="app.js" defer></script>
+  <script src="secrets/api.js" defer></script>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
   <title>NewsMap</title>
 </head>
 
 <body>
   <div id="root"></div>
+  <div id="map"></div>
 </body>
 
 </html>
