@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from 'react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+import apiKey from './secrets/api.js';
 
-const Map = () => {
-  const [script, setScript] = useState('Hi');
 
+export class MapContainer extends React.Component {
 
-  const getMap = () => {
-    fetch('map')
-      .then(response => {
-        return response.text();
-      })
-      .then(text => {
-        setScript(text);
-        // console.log(text.slice(0, 100));
-      })
-      .catch(err => console.log('FETCHING ERROR, ', err));
+  mapStyle = {
+    width: '100%',
+    height: '100%'
+  };
+
+  render() {
+    return (
+      <Map
+        google={this.props.google}
+        style={this.mapStyle}
+        initialCenter={{
+          lat: 38.00000,
+          lng: -96.00000
+        }}
+        zoom={5}
+      />
+    )
   }
-
-  useEffect(getMap, []);
-
-  return (
-    <>
-      <h3>put a map here</h3>
-      <div id="map">Hi</div>
-    </>
-  )
 }
 
-export default Map;
+// export default MapContainer;
+
+const MapWrap = GoogleApiWrapper({ apiKey })(MapContainer);
+export default MapWrap;
+
+// export default GoogleApiWrapper({ apiKey })(MapContainer);
 
