@@ -12,7 +12,9 @@ const articleSchema = new mongoose.Schema({
   url: String,
   urlToImage: String,
   publishedAt: Date,
-  content: String
+  content: String,
+  location: { type: String, default: '' },
+  geocode: { lat: { type: Number, default: 0 }, lng: { type: Number, default: 0 } }
 });
 
 const Article = mongoose.model('Article', articleSchema);

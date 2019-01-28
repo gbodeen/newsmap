@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/gbodeen/newsmap#readme",
   "dependencies": {
+    "@google/maps": "^0.5.5",
     "axios": "^0.18.0",
+    "country-in-text-detector": "^1.0.10",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
     "mongoose": "^5.4.7",
     "newsapi": "^2.4.0"
   },
