@@ -4,11 +4,27 @@ import apiKey from './secrets/api.js';
 
 
 export class MapContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      news: []
+    }
+  }
 
   mapStyle = {
     width: '100%',
     height: '100%'
   };
+
+  componentDidMount() {
+    this.getNews();
+  }
+
+  getNews = () => {
+    fetch('news')
+      .then(response => response.json())
+      .then(news => this.setState({ news }));
+  }
 
   render() {
     return (
