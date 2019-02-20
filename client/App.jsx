@@ -1,9 +1,16 @@
 import React from 'react';
-import MapWrap from './Map.jsx';
+import Map from './Map.jsx';
+import apiKey from './secrets/api.js';
 
 const App = () => (
   <>
-    <MapWrap />
+    <div className="overlay">NewsMap</div>
+    <Map
+      googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}`}
+      loadingElement={<div style={{ height: `100%` }} />}
+      containerElement={<div style={{ height: `600px`, width: `600px` }} />}
+      mapElement={<div style={{ height: `100%` }} />}
+    />
   </>
 )
 
