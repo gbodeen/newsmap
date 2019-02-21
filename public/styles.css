@@ -1,4 +1,13 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 .customMarker {
   border-radius: 50%;
 }
 
+.overlay {
+  position: absolute;
+  size: 36px;
+}
