@@ -4,10 +4,24 @@
 }
 
 .customMarker {
+  height: 60px;
+  width: 60px;
+  border: 2px solid black;
   border-radius: 50%;
+  background-size: auto 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+.customMarker:hover {
+  border: 2px solid red;
 }
 
-.overlay {
+/* .overlay {
   position: absolute;
   size: 36px;
 }
+
+.map {
+  position: absolute;
+} */
