@@ -13,21 +13,17 @@ const Map = withScriptjs(withGoogleMap((props) => {
   // }
   const [news, setNews] = useState([]);
 
-  const mapStyle = {
-    width: '100%',
-    height: '100%'
-  };
-
   // componentDidMount() {
   //   this.getNews();
   // }
-  // useEffect(getNews, []);
 
   const getNews = () => {
     fetch('news')
       .then(response => response.json())
-      .then(news => setNews({ news }));
+      .then(news => setNews(news));
   }
+
+  useEffect(getNews, []);
 
   const onMarkerClick = (url) => {
     window.open(url);
@@ -39,7 +35,7 @@ const Map = withScriptjs(withGoogleMap((props) => {
       center={{ lat: 38.00000, lng: -96.00000 }}
     >
 
-      {/* {news.map(story => {
+      {news.map(story => {
         return (
           <Marker
             title={story.description}
@@ -55,7 +51,7 @@ const Map = withScriptjs(withGoogleMap((props) => {
             }}
           />
         )
-      })} */}
+      })}
     </GoogleMap>
   )
 }))
