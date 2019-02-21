@@ -1,3 +1,8 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 .customMarker {
   border-radius: 50%;
 }

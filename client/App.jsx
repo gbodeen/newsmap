@@ -8,7 +8,7 @@ const App = () => (
     <Map
       googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}`}
       loadingElement={<div style={{ height: `100%` }} />}
-      containerElement={<div style={{ height: `600px`, width: `600px` }} />}
+      containerElement={<div style={{ height: `100%`, width: `100%` }} />}
       mapElement={<div style={{ height: `100%` }} />}
     />
   </>
