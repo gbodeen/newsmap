@@ -13,7 +13,6 @@ class CustomMarker extends React.Component {
 
   render() {
     const { title, geocode, urlToImage, url } = this.props.story;
-    // console.log(this.props);
     return (
       <Marker
         title={title}
@@ -26,7 +25,6 @@ class CustomMarker extends React.Component {
           mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
           getPixelPositionOffset={this.getPixelPositionOffset}
         >
-          {/* {console.log(OverlayView.getProjection().)} */}
           <div className="customMarker" style={{ backgroundImage: `url("${urlToImage}")` }} onClick={() => this.onMarkerClick(url)} >{this.props.children}</div>
         </OverlayView>
       </Marker>

@@ -14,23 +14,13 @@ const Map = withScriptjs(withGoogleMap((props) => {
 
   useEffect(getNews, []);
 
-  const onMarkerClick = (url) => {
-    window.open(url);
-  }
-
   return (
     <GoogleMap
       defaultZoom={5}
-      // ref="map"
       center={{ lat: 38.00000, lng: -96.00000 }}
     >
-
       {news.map(story => {
-        return (
-          // new CustomMarker(map, story.description, story.geocode, story.urlToImage)
-
-          <CustomMarker story={story} key={Math.random()} />
-        )
+        return <CustomMarker story={story} key={Math.random()} />;
       })}
     </GoogleMap>
   )
