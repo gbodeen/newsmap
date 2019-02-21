@@ -7,6 +7,10 @@ class CustomMarker extends React.Component {
     window.open(url);
   }
 
+  getPixelPositionOffset = (width, height) => {
+    return { x: -width / 2, y: -height - 10 };
+  }
+
   render() {
     const { title, geocode, urlToImage, url } = this.props.story;
     // console.log(this.props);
@@ -14,14 +18,15 @@ class CustomMarker extends React.Component {
       <Marker
         title={title}
         position={geocode}
-        icon="images/transparent_1x1.png"
+        icon="images/blackpointer.png"
       >
         <OverlayView
           key={Math.random()}
           position={geocode}
           mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-          getPixelPositionOffset={this._getPixelPositionOffset}
+          getPixelPositionOffset={this.getPixelPositionOffset}
         >
+          {/* {console.log(OverlayView.getProjection().)} */}
           <div className="customMarker" style={{ backgroundImage: `url("${urlToImage}")` }} onClick={() => this.onMarkerClick(url)} >{this.props.children}</div>
         </OverlayView>
       </Marker>
