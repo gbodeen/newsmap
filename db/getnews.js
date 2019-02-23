@@ -5,6 +5,7 @@ const newsapi = new NewsAPI(key);
 const { insertArticles } = require('./controllers');
 const { addLocationText, geocodeLocation } = require('./locations');
 const PAGESIZE = 100;
+const saveImages = require('../server/imageAssets');
 
 const getHeadlines = (page = 1) => {
   const allUSHeadlines = {
@@ -22,7 +23,11 @@ const getHeadlines = (page = 1) => {
       // console.log('Number of results: ', response.totalResults);
       return addLocationText(response.articles)
     })
-    .then(articles => geocodeLocation(articles))
+    .then(articles => {
+      saveImages(articles);
+      return geocodeLocation(articles)
+    }
+    )
     .then(articles => insertArticles(articles))
     .then(success => console.log('Seeded database.'))
     .catch(err => console.log('Error retrieving news stories:  ', err));

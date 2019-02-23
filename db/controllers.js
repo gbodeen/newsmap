@@ -7,7 +7,7 @@ insertArticles = articles => {
 }
 
 retrieveArticles = () => {
-  return Article.find({})
+  return Article.find({}).limit(25)
     .catch(err => console.log('Error retrieving articles from database:  ', err));
 }
 
